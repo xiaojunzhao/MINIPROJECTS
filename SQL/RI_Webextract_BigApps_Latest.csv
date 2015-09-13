@@ -1,0 +1,43 @@
+DATA SET TO BE PROVIDED FOR BIG APPS (NYC),,,,,
+TRANSACTIONAL DATA SET,,,,,
+Dataset (File),Data Field Name,Data Type,Length,Additional Info,Description
+WEBEXTRACT,CAMIS,Varchar,10,,This is an unique identifier for the entity (restaurant)
+WEBEXTRACT,DBA,varchar,255,,This field represents the name (doing business as) of the entity (restaurant)
+WEBEXTRACT,BORO,Varchar,1,"? 1 = MANHATTAN
+? 2 = THE BRONX
+? 3 = BROOKLYN
+? 4 = QUEENS
+? 5 = STATEN ISLAND",Borugh in which the entity (restaurant) is located.
+WEBEXTRACT,BUILDING,Varchar,10,,This field represents the building number for the entity (restaurant)
+WEBEXTRACT,STREET,Varchar,100,,This field represents the street name at which the entity (restaurant) is located.
+WEBEXTRACT,ZIPCODE,Varchar,5,,Zipcode as per the address of the entity (restaurant)
+WEBEXTRACT,PHONE,Varchar,20,,Phone Number
+WEBEXTRACT,CUISINECODE,Varchar,2,,This field is used to group restaurants by Cuisine Category. Full description can be obtained by lookup dataset (cuisine).
+WEBEXTRACT,INSPDATE,Datetime,,,This field represents the date of inspection
+WEBEXTRACT,ACTION,Varchar,1,,This field represents the action codes that is associated with each restaurant inspection. Full description can be obtained by lookup dataset (action).
+WEBEXTRACT,VIOLCODE,Varchar,3,,This field represents the violation codes that is associated with each restaurant inspection. Full description can be obtained by lookup dataset (violation).
+WEBEXTRACT,SCORE,Varchar,3,,Total Score for a particular inspection.
+WEBEXTRACT,CURRENTGRADE,Varchar,1,"? NULL = Not Yet Graded
+? A = Grade A
+? B = Grade B
+? C = Grade C
+? Z = Grade Pending",This fields represents the current grade for the entity (restaurant)
+WEBEXTRACT,GRADEDATE,Datetime,N/A,,The date when the current grade was issued to the entity (restaurant)
+WEBEXTRACT,RECORDDATE,Datetime,N/A,,The date when the webextract was run to produce this data set
+LOOKUP DATA SET,,,,,
+,,,,,
+CUISINE,CUISINECODE,Nchar,10,,This is the cuisine code from webextract file
+CUISINE,CODEDESC,Varchar,200,,This field shows the full description related to the cuisine code
+,,,,,
+ACTION,STARTDATE,Datetime,,,These fields are used to distinguish the text that needs to be displayed based on inspection date
+ACTION,ENDDATE,Datetime,,,
+ACTION,ACTIONCODE,nchar,10,,This field corresponds to ACTION from WEBEXTRACT
+ACTION,ACTIONDESC,nvarchar,150,,This field is the description that corresponds to the action codes
+,,,,,
+VIOLATION,STARTDATE,Datetime,,,These fields are used to distinguish the text that needs to be displayed based on inspection date
+VIOLATION,ENDDATE,Datetime,,,
+VIOLATION,VIOLATIONCODE,nchar,3,,This field corresponds to VIOLCODE from WEBEXTRACT
+VIOLATION,VIOLATIONDESC,nvarchar,600,,This field is the description that corresponds to the violation codes
+VIOLATION,CRITICALFLAG,nchar,1,"? Y = Critical
+? N = Not Critical",This indicates if Violation is critical or not.
+,,,,,
